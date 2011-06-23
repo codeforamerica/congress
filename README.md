@@ -1,6 +1,6 @@
 # Ruby wrapper for the Real-Time Congress API
 
-The Real Time Congress (RTC) API is a RESTful API over the artifacts of
+The Real-Time Congress (RTC) API is a RESTful API over the artifacts of
 Congress, in as close to real-time as possible.
 
 Installation

@@ -7,8 +7,8 @@ Gem::Specification.new do |gem|
   gem.author      = "Erik Michaels-Ober"
   gem.email       = 'sferik@gmail.com'
   gem.homepage    = 'https://github.com/sferik/congress'
-  gem.summary     = %q{Ruby wrapper for the Mt. Gox Trade API}
-  gem.description = %q{Ruby wrapper for the Mt. Gox Trade API. Mt. Gox allows you to trade US Dollars (USD) for Bitcoins (BTC) or Bitcoins for US Dollars.}
+  gem.summary     = %q{Ruby wrapper for the Real-Time Congress API}
+  gem.description = %q{Ruby wrapper for the Real-Time Congress API. The Real-Time Congress API is a RESTful API over the artifacts of Congress, in as close to real-time as possible.}
 
   gem.files         = `git ls-files`.split("\n")
   gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
