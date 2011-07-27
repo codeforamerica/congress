@@ -13,7 +13,7 @@ Documentation
 
 Continuous Integration
 ----------------------
-[![Build Status](http://travis-ci.org/codeforamerica/congress.png)](http://travis-ci.org/codeforamerica/congress)
+[![Build Status](https://secure.travis-ci.org/codeforamerica/congress.png)](http://travis-ci.org/codeforamerica/congress)
 
 Usage Examples
 --------------
