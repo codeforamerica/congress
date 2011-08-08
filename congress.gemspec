@@ -16,6 +16,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ['lib']
 
   gem.add_development_dependency 'ZenTest', '~> 4.5'
+  gem.add_development_dependency 'json', '~> 1.5'
   gem.add_development_dependency 'maruku', '~> 0.6'
   gem.add_development_dependency 'rake', '~> 0.9'
   gem.add_development_dependency 'rspec', '~> 2.6'
@@ -25,7 +26,7 @@ Gem::Specification.new do |gem|
 
   gem.add_runtime_dependency 'faraday', '~> 0.7.4'
   gem.add_runtime_dependency 'faraday_middleware', '~> 0.7.0'
-  gem.add_runtime_dependency 'hashie', '~> 1.0.0'
+  gem.add_runtime_dependency 'hashie', '~> 1.1.0'
   gem.add_runtime_dependency 'multi_json', '~> 1.0.3'
   gem.add_runtime_dependency 'rash', '~> 0.3.0'
 end
