@@ -6,7 +6,7 @@ Gem::Specification.new do |gem|
   gem.version     = Congress::VERSION
   gem.author      = "Erik Michaels-Ober"
   gem.email       = 'sferik@gmail.com'
-  gem.homepage    = 'https://github.com/sferik/congress'
+  gem.homepage    = 'https://github.com/codeforamerica/congress'
   gem.summary     = %q{Ruby wrapper for the Real-Time Congress API}
   gem.description = %q{Ruby wrapper for the Real-Time Congress API. The Real-Time Congress API is a RESTful API over the artifacts of Congress, in as close to real-time as possible.}
 
