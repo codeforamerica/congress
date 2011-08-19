@@ -1,22 +1,17 @@
 # Ruby wrapper for the Real-Time Congress API
-
 The Real-Time Congress (RTC) API is a RESTful API over the artifacts of
 Congress, in as close to real-time as possible.
 
-<a name="installation">Installation</a>
-------------
+## <a name="installation">Installation</a>
     gem install congress
 
-<a name="documentation">Documentation</a>
--------------
+## <a name="documentation">Documentation</a>
 [http://rdoc.info/gems/congress](http://rdoc.info/gems/congress)
 
-<a name="ci">Continuous Integration</a>
-----------------------
+## <a name="ci">Continuous Integration</a>
 [![Build Status](https://secure.travis-ci.org/codeforamerica/congress.png)](http://travis-ci.org/codeforamerica/congress)
 
-<a name="examples">Usage Examples</a>
---------------
+## <a name="examples">Usage Examples</a>
     require 'rubygems'
     require 'congress'
 
@@ -45,8 +40,7 @@ Congress, in as close to real-time as possible.
     # Fetch links to various kinds of documents produced by agencies within Congress
     puts Congress.documents
 
-<a name="contributing">Contributing</a>
-------------
+## <a name="contributing">Contributing</a>
 In the spirit of [free
 software](http://www.fsf.org/licensing/essays/free-sw.html), **everyone** is
 encouraged to help improve this project.
@@ -64,8 +58,7 @@ Here are some ways *you* can contribute:
 * by closing [issues](https://github.com/codeforamerica/congress/issues)
 * by reviewing patches
 
-<a name="issues">Submitting an Issue</a>
--------------------
+## <a name="issues">Submitting an Issue</a>
 We use the [GitHub issue tracker](https://github.com/codeforamerica/congress/issues) to
 track bugs and features. Before submitting a bug report or feature request,
 check to make sure it hasn't already been submitted. You can indicate support
@@ -75,8 +68,7 @@ details that may be necessary to reproduce the bug, including your gem version,
 Ruby version, and operating system. Ideally, a bug report should include a pull
 request with failing specs.
 
-<a name="pulls">Submitting a Pull Request</a>
--------------------------
+## <a name="pulls">Submitting a Pull Request</a>
 1. Fork the project.
 2. Create a topic branch.
 3. Implement your feature or bug fix.
@@ -91,8 +83,7 @@ request with failing specs.
    version, or history file. (If you want to create your own version for some
    reason, please do so in a separate commit.)
 
-<a name="rubies">Supported Rubies</a>
-----------------
+## <a name="rubies">Supported Rubies</a>
 This library aims to support and is [tested
 against](http://travis-ci.org/codeforamerica/congress) the following Ruby
 implementations:
@@ -118,8 +109,7 @@ implementation, you will be personally responsible for providing patches in a
 timely fashion. If critical issues for a particular implementation exist at the
 time of a major release, support for that Ruby version may be dropped.
 
-<a name="copyright">Copyright</a>
----------
+## <a name="copyright">Copyright</a>
 Copyright (c) 2011, Code for America. All rights reserved.
 See [LICENSE](https://github.com/codeforamerica/congress/blob/master/LICENSE.md) for details.
 
