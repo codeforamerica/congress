@@ -4,9 +4,9 @@ require File.expand_path('../lib/congress/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.add_dependency 'faraday', '~> 0.7.4'
   gem.add_dependency 'faraday_middleware', '~> 0.7.0'
-  gem.add_dependency 'hashie', '~> 1.0.0'
+  gem.add_dependency 'hashie', '~> 1.1.0'
   gem.add_dependency 'multi_json', '~> 1.0.3'
-  gem.add_dependency 'rash', '~> 0.3.0'
+  gem.add_dependency 'rash', '~> 0.3.1'
   gem.add_development_dependency 'json', '~> 1.5'
   gem.add_development_dependency 'rake', '~> 0.9'
   gem.add_development_dependency 'rdiscount', '~> 1.6'
