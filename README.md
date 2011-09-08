@@ -9,7 +9,7 @@ Congress, in as close to real-time as possible.
 [http://rdoc.info/gems/congress](http://rdoc.info/gems/congress)
 
 ## <a name="ci">Continuous Integration</a>
-[![Build Status](https://travis-ci.org/codeforamerica/congress.png)](http://travis-ci.org/codeforamerica/congress)
+[![Build Status](https://secure.travis-ci.org/codeforamerica/congress.png)](http://travis-ci.org/codeforamerica/congress)
 
 ## <a name="examples">Usage Examples</a>
     require 'rubygems'
