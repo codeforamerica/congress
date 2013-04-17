@@ -16,36 +16,39 @@ Congress, in as close to real-time as possible.
     gem install congress
 
 ## Documentation
-[http://rdoc.info/gems/congress](http://rdoc.info/gems/congress)
+[http://rdoc.info/gems/congress][documentation]
+[documentation]: http://rdoc.info/gems/congress
 
 ## Usage Examples
-    require 'rubygems'
-    require 'congress'
+```ruby
+require 'rubygems'
+require 'congress'
 
-    # An API key is required
-    # You can obtain one from http://services.sunlightlabs.com/accounts/register/
-    Congress.key = YOUR_RTC_API_KEY
+# An API key is required
+# You can obtain one from http://services.sunlightlabs.com/accounts/register/
+Congress.key = YOUR_RTC_API_KEY
 
-    # Fetch bills introduced bills and resolutions in Congress
-    puts Congress.bills
+# Fetch bills introduced bills and resolutions in Congress
+puts Congress.bills
 
-    # Fetch votes taken in Congress
-    puts Congress.votes
+# Fetch votes taken in Congress
+puts Congress.votes
 
-    # Fetch amendments to bills and resolutions offered in Congress
-    puts Congress.amendments
+# Fetch amendments to bills and resolutions offered in Congress
+puts Congress.amendments
 
-    # Fetch videos from the U.S. House of Representatives and from the White House
-    puts Congress.videos
+# Fetch videos from the U.S. House of Representatives and from the White House
+puts Congress.videos
 
-    # Fetch updates from the floor of each chamber of Congress
-    puts Congress.floor_updates
+# Fetch updates from the floor of each chamber of Congress
+puts Congress.floor_updates
 
-    # Fetch upcoming scheduled committee hearings in the House and Senate
-    puts Congress.committee_hearings
+# Fetch upcoming scheduled committee hearings in the House and Senate
+puts Congress.committee_hearings
 
-    # Fetch links to various kinds of documents produced by agencies within Congress
-    puts Congress.documents
+# Fetch links to various kinds of documents produced by agencies within Congress
+puts Congress.documents
+```
 
 ## Contributing
 In the spirit of [free software][free-sw], **everyone** is encouraged to help improve
@@ -102,6 +105,7 @@ implementations:
 * Ruby 1.8.7
 * Ruby 1.9.2
 * Ruby 1.9.3
+* Ruby 2.0.0
 * [JRuby][]
 * [Rubinius][]
 
@@ -126,5 +130,3 @@ time of a major release, support for that Ruby version may be dropped.
 Copyright (c) 2011, Code for America. See [LICENSE][] for details.
 
 [license]: https://github.com/codeforamerica/congress/blob/master/LICENSE.md
-
-[![Code for America Tracker](http://stats.codeforamerica.org/codeforamerica/congress.png)](http://stats.codeforamerica.org/projects/congress)
