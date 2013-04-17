@@ -7,7 +7,7 @@ platforms :jruby do
 end
 
 group :development do
-  gem 'json', :platforms => :ruby_18
+  gem 'json', :platforms => [:jruby, :ruby_18]
   gem 'kramdown'
   gem 'simplecov'
   gem 'yard'
