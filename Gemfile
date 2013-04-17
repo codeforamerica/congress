@@ -5,6 +5,7 @@ platforms :jruby do
 end
 
 group :development do
+  gem 'json', :platforms => :ruby_18
   gem 'maruku'
   gem 'rake'
   gem 'rspec'
