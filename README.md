@@ -1,7 +1,9 @@
 # Ruby wrapper for the Real-Time Congress API
 
+[![Gem Version](https://badge.fury.io/rb/congress.png)][gem]
 [![Build Status](https://secure.travis-ci.org/codeforamerica/congress.png)][travis]
 [![Code Climate](https://codeclimate.com/github/codeforamerica/congress.png)][codeclimate]
+[gem]: https://rubygems.org/gems/congress
 [travis]: http://travis-ci.org/codeforamerica/congress
 [codeclimate]: https://codeclimate.com/github/codeforamerica/congress
 
