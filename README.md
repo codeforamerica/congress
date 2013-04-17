@@ -2,9 +2,11 @@
 
 [![Gem Version](https://badge.fury.io/rb/congress.png)][gem]
 [![Build Status](https://secure.travis-ci.org/codeforamerica/congress.png)][travis]
+[![Dependency Status](https://gemnasium.com/codeforamerica/congress.png?travis)][gemnasium]
 [![Code Climate](https://codeclimate.com/github/codeforamerica/congress.png)][codeclimate]
 [gem]: https://rubygems.org/gems/congress
 [travis]: http://travis-ci.org/codeforamerica/congress
+[gemnasium]: https://gemnasium.com/codeforamerica/congress
 [codeclimate]: https://codeclimate.com/github/codeforamerica/congress
 
 The Real-Time Congress (RTC) API is a RESTful API over the artifacts of
