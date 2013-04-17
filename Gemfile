@@ -1,17 +1,21 @@
 source 'http://rubygems.org'
 
+gem 'rake'
+
 platforms :jruby do
   gem 'jruby-openssl', '~> 0.7'
 end
 
 group :development do
   gem 'json', :platforms => :ruby_18
-  gem 'maruku'
-  gem 'rake'
-  gem 'rspec'
+  gem 'kramdown'
   gem 'simplecov'
-  gem 'webmock'
   gem 'yard'
+end
+
+group :test do
+  gem 'rspec'
+  gem 'webmock'
 end
 
 gemspec
