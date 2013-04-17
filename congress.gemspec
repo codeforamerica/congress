@@ -7,13 +7,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'hashie', '~> 1.1'
   gem.add_dependency 'multi_json', '~> 1.0'
   gem.add_dependency 'rash', '~> 0.3'
-  gem.add_development_dependency 'json'
-  gem.add_development_dependency 'maruku'
-  gem.add_development_dependency 'rake'
-  gem.add_development_dependency 'rspec'
-  gem.add_development_dependency 'simplecov'
-  gem.add_development_dependency 'webmock'
-  gem.add_development_dependency 'yard'
+  gem.add_development_dependency 'bundler', '~> 1.0'
   gem.author      = "Erik Michaels-Ober"
   gem.description = %q{Ruby wrapper for the Real-Time Congress API. The Real-Time Congress API is a RESTful API over the artifacts of Congress, in as close to real-time as possible.}
   gem.email       = 'sferik@gmail.com'
