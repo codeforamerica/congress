@@ -1,8 +1,12 @@
-# Ruby wrapper for the Real-Time Congress API [![Build Status](https://secure.travis-ci.org/codeforamerica/congress.png)][travis]
+# Ruby wrapper for the Real-Time Congress API
+
+[![Build Status](https://secure.travis-ci.org/codeforamerica/congress.png)][travis]
+[![Code Climate](https://codeclimate.com/github/codeforamerica/congress.png)][codeclimate]
+[travis]: http://travis-ci.org/codeforamerica/congress
+[codeclimate]: https://codeclimate.com/github/codeforamerica/congress
+
 The Real-Time Congress (RTC) API is a RESTful API over the artifacts of
 Congress, in as close to real-time as possible.
-
-[travis]: http://travis-ci.org/codeforamerica/congress
 
 ## Installation
     gem install congress
