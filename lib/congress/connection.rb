@@ -5,7 +5,7 @@ module Congress
     private
 
     def connection
-      Faraday.new(:url => 'http://api.realtimecongress.org') do |connection|
+      Faraday.new(:url => 'http://congress.api.sunlightfoundation.com') do |connection|
         connection.use Faraday::Request::UrlEncoded
         connection.use Faraday::Response::RaiseError
         connection.use Faraday::Response::Rashify

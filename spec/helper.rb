@@ -7,11 +7,11 @@ require 'rspec'
 require 'webmock/rspec'
 
 def a_get(path)
-  a_request(:get, 'http://api.realtimecongress.org' + path)
+  a_request(:get, 'http://congress.api.sunlightfoundation.com' + path)
 end
 
 def stub_get(path)
-  stub_request(:get, 'http://api.realtimecongress.org' + path)
+  stub_request(:get, 'http://congress.api.sunlightfoundation.com' + path)
 end
 
 def fixture_path
