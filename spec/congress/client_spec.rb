@@ -28,7 +28,7 @@ describe Congress::Client do
         stub_get('/legislators/locate?apikey=abc123&zip=94107').
           to_return(:status => 200, :body => fixture('legislators_locate.json'))
       end
-      it "fetches representatives and senators for a latitude/longitude or zip" do
+      it "fetches representatives and senators for a zip code" do
         legislators_locate = @client.legislators_locate(94107)
         a_get('/legislators/locate?apikey=abc123&zip=94107').
           should have_been_made
@@ -41,7 +41,7 @@ describe Congress::Client do
         stub_get('/legislators/locate?apikey=abc123&latitude=37.775&longitude=-122.418').
           to_return(:status => 200, :body => fixture('legislators_locate.json'))
       end
-      it "fetches representatives and senators for a latitude/longitude or zip" do
+      it "fetches representatives and senators for a latitude/longitude pir" do
         legislators_locate = @client.legislators_locate(37.775, -122.418)
         a_get('/legislators/locate?apikey=abc123&latitude=37.775&longitude=-122.418').
           should have_been_made
@@ -64,7 +64,7 @@ describe Congress::Client do
         stub_get('/districts/locate?apikey=abc123&zip=94107').
           to_return(:status => 200, :body => fixture('districts_locate.json'))
       end
-      it "fetches congressional districts for a latitude/longitude or zip" do
+      it "fetches congressional districts for a zip code" do
         districts_locate = @client.districts_locate(94107)
         a_get('/districts/locate?apikey=abc123&zip=94107').
           should have_been_made
@@ -77,7 +77,7 @@ describe Congress::Client do
         stub_get('/districts/locate?apikey=abc123&latitude=37.775&longitude=-122.418').
           to_return(:status => 200, :body => fixture('districts_locate.json'))
       end
-      it "fetches congressional districts for a latitude/longitude or zip" do
+      it "fetches congressional districts for a latitude/longitude pair" do
         districts_locate = @client.districts_locate(37.775, -122.418)
         a_get('/districts/locate?apikey=abc123&latitude=37.775&longitude=-122.418').
           should have_been_made
@@ -99,7 +99,7 @@ describe Congress::Client do
       stub_get('/committees?apikey=abc123').
         to_return(:status => 200, :body => fixture('committees.json'))
     end
-    it "fetches legislation in the House and Senate" do
+    it "fetches current committees, subcommittees, and their membership" do
       committees = @client.committees
       a_get('/committees?apikey=abc123').
         should have_been_made
@@ -183,7 +183,7 @@ describe Congress::Client do
       stub_get('/upcoming_bills?apikey=abc123').
         to_return(:status => 200, :body => fixture('upcoming_bills.json'))
     end
-    it "fetches committee hearings in Congress" do
+    it "fetches bills scheduled for debate in the future, as announced by party leadership" do
       upcoming_bills = @client.upcoming_bills
       a_get('/upcoming_bills?apikey=abc123').
         should have_been_made
