@@ -1,4 +1,4 @@
-# Ruby wrapper for the Real-Time Congress API
+# Ruby wrapper for the Sunlight Congress API
 
 [![Gem Version](https://badge.fury.io/rb/congress.png)][gem]
 [![Build Status](https://secure.travis-ci.org/codeforamerica/congress.png)][travis]
@@ -9,8 +9,8 @@
 [gemnasium]: https://gemnasium.com/codeforamerica/congress
 [codeclimate]: https://codeclimate.com/github/codeforamerica/congress
 
-The Real-Time Congress (RTC) API is a RESTful API over the artifacts of
-Congress, in as close to real-time as possible.
+The Sunlight Congress API is a live JSON API for the people and work of
+Congress, provided by the Sunlight Foundation.
 
 ## Installation
     gem install congress
@@ -29,35 +29,71 @@ Then, install the gem with the high security trust policy:
 [http://rdoc.info/gems/congress][documentation]
 [documentation]: http://rdoc.info/gems/congress
 
+## Authentication
+
+All requests to the Congress API require a Sunlight API key. An API key is
+[free to register][register] and has no usage limits.
+
+[register]: http://services.sunlightlabs.com/accounts/register/
+
 ## Usage Examples
+
+###### Setup
 ```ruby
-require 'rubygems'
 require 'congress'
-
-# An API key is required
-# You can obtain one from http://services.sunlightlabs.com/accounts/register/
 Congress.key = YOUR_RTC_API_KEY
+```
 
-# Fetch bills introduced bills and resolutions in Congress
-puts Congress.bills
+###### Fetch current legislators' names, IDs, biography, and social media
+```ruby
+Congress.legislators
+```
 
-# Fetch votes taken in Congress
-puts Congress.votes
+###### Fetch representatives and senators for a latitude/longitude or zip code
+```ruby
+Congress.legislators_locate(37.775, -122.418)
+Congress.legislators_locate(94107)
+```
 
-# Fetch amendments to bills and resolutions offered in Congress
-puts Congress.amendments
+###### Fetch congressional districts for a latitude/longitude or zip code
+```ruby
+Congress.districts_locate(37.775, -122.418)
+Congress.districts_locate(94107)
+```
 
-# Fetch videos from the U.S. House of Representatives and from the White House
-puts Congress.videos
+###### Fetch current committees, subcommittees, and their membership
+```ruby
+Congress.committees
+```
 
-# Fetch updates from the floor of each chamber of Congress
-puts Congress.floor_updates
+###### Fetch legislation in the House and Senate
+```ruby
+Congress.bills
+```
 
-# Fetch upcoming scheduled committee hearings in the House and Senate
-puts Congress.committee_hearings
+###### Fetch legislation related to health care
+```ruby
+Congress.bills_search(:query => "health care")
+```
 
-# Fetch links to various kinds of documents produced by agencies within Congress
-puts Congress.documents
+###### Fetch roll call votes in Congress
+```ruby
+Congress.votes
+```
+
+###### Fetch to-the-minute updates from the floor of the House and Senate
+```ruby
+Congress.floor_updates
+```
+
+###### Fetch committee hearings in Congress
+```ruby
+Congress.hearings
+```
+
+###### Fetch bills scheduled for debate in the future, as announced by party leadership
+```ruby
+Congress.upcoming_bills
 ```
 
 ## Contributing

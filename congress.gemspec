@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'bundler', '~> 1.0'
   spec.author        = "Erik Michaels-Ober"
   spec.cert_chain    = ['certs/sferik.pem']
-  spec.description   = %q{Ruby wrapper for the Real-Time Congress API. The Real-Time Congress API is a RESTful API over the artifacts of Congress, in as close to real-time as possible.}
+  spec.description   = %q{Ruby wrapper for the Sunlight Congress API, a live JSON API for the people and work of Congress, provided by the Sunlight Foundation.}
   spec.email         = 'sferik@gmail.com'
   spec.files         = `git ls-files`.split("\n")
   spec.homepage      = 'https://github.com/codeforamerica/congress'
@@ -17,7 +17,7 @@ Gem::Specification.new do |spec|
   spec.name          = 'congress'
   spec.require_paths = ['lib']
   spec.signing_key   = File.expand_path("~/.gem/private_key.pem") if $0 =~ /gem\z/
-  spec.summary       = %q{Ruby wrapper for the Real-Time Congress API}
+  spec.summary       = %q{Ruby wrapper for the Sunlight Congress API}
   spec.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   spec.version       = Congress::VERSION
 end
