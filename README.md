@@ -15,6 +15,16 @@ Congress, in as close to real-time as possible.
 ## Installation
     gem install congress
 
+To ensure the code you're installing hasn't been tampered with, it's
+recommended that you verify the signature. To do this, you need to add my
+public key as a trusted certificate (you only need to do this once):
+
+    gem cert --add <(curl -Ls https://gist.github.com/sferik/4701180/raw/public_cert.pem)
+
+Then, install the gem with the high security trust policy:
+
+    gem install congress -P HighSecurity
+
 ## Documentation
 [http://rdoc.info/gems/congress][documentation]
 [documentation]: http://rdoc.info/gems/congress
