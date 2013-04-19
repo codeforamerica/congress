@@ -12,6 +12,7 @@ Gem::Specification.new do |spec|
   spec.email         = 'sferik@gmail.com'
   spec.files         = `git ls-files`.split("\n")
   spec.homepage      = 'https://github.com/codeforamerica/congress'
+  spec.licenses      = ['MIT']
   spec.name          = 'congress'
   spec.require_paths = ['lib']
   spec.summary       = %q{Ruby wrapper for the Real-Time Congress API}
