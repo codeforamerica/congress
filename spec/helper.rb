@@ -1,10 +1,17 @@
-unless ENV['CI']
-  require 'simplecov'
-  SimpleCov.start
-end
+require 'simplecov'
+require 'coveralls'
+
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
+SimpleCov.start
+
 require 'congress'
 require 'rspec'
 require 'webmock/rspec'
+
+WebMock.disable_net_connect!(:allow => 'coveralls.io')
 
 def a_get(path)
   a_request(:get, 'http://congress.api.sunlightfoundation.com' + path)

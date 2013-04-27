@@ -4,10 +4,12 @@
 [![Build Status](https://secure.travis-ci.org/codeforamerica/congress.png)][travis]
 [![Dependency Status](https://gemnasium.com/codeforamerica/congress.png?travis)][gemnasium]
 [![Code Climate](https://codeclimate.com/github/codeforamerica/congress.png)][codeclimate]
+[![Coverage Status](https://coveralls.io/repos/codeforamerica/congress/badge.png?branch=master)][coveralls]
 [gem]: https://rubygems.org/gems/congress
 [travis]: http://travis-ci.org/codeforamerica/congress
 [gemnasium]: https://gemnasium.com/codeforamerica/congress
 [codeclimate]: https://codeclimate.com/github/codeforamerica/congress
+[coveralls]: https://coveralls.io/r/codeforamerica/congress
 
 The Sunlight Congress API is a live JSON API for the people and work of
 Congress, provided by the Sunlight Foundation.
