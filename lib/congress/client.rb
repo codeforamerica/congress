@@ -24,15 +24,7 @@ module Congress
     #   Congress.legislators_locate(94107)
     #   Congress.legislators_locate(37.775, -122.418)
     def legislators_locate(*args)
-      options = args.last.is_a?(::Hash) ? args.pop : {}
-      if args.size == 1
-        options[:zip] = args.pop
-      elsif args.size == 2
-        options[:longitude] = args.pop
-        options[:latitude] = args.pop
-      else
-        raise ArgumentError, "Must pass a latitude/longitude or zip"
-      end
+      options = extract_location(args)
       get('/legislators/locate', options.merge(api_key))
     end
 
@@ -44,15 +36,7 @@ module Congress
     #   Congress.districts_locate(94107)
     #   Congress.districts_locate(37.775, -122.418)
     def districts_locate(*args)
-      options = args.last.is_a?(::Hash) ? args.pop : {}
-      if args.size == 1
-        options[:zip] = args.pop
-      elsif args.size == 2
-        options[:longitude] = args.pop
-        options[:latitude] = args.pop
-      else
-        raise ArgumentError, "Must pass a latitude/longitude or zip"
-      end
+      options = extract_location(args)
       get('/districts/locate', options.merge(api_key))
     end
 
@@ -126,10 +110,24 @@ module Congress
       get('/upcoming_bills', options.merge(api_key))
     end
 
-    private
+  private
 
     def api_key
       {:apikey => Congress.key}
+    end
+
+    def extract_location(args)
+      options = args.last.is_a?(::Hash) ? args.pop : {}
+      case args.size
+      when 1
+        options[:zip] = args.pop
+      when 2
+        options[:longitude] = args.pop
+        options[:latitude] = args.pop
+      else
+        raise ArgumentError, "Must pass a latitude/longitude or zip"
+      end
+      options
     end
 
   end
