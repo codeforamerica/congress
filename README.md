@@ -43,7 +43,7 @@ All requests to the Congress API require a Sunlight API key. An API key is
 ###### Setup
 ```ruby
 require 'congress'
-Congress.key = YOUR_RTC_API_KEY
+Congress.key = YOUR_SUNLIGHT_API_KEY
 ```
 
 ###### Fetch current legislators' names, IDs, biography, and social media
