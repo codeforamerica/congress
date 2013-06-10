@@ -10,7 +10,7 @@ module Congress
     #
     # @return [Hashie::Rash]
     # @example
-    #   Congress.key = YOUR_RTC_API_KEY
+    #   Congress.key = YOUR_SUNLIGHT_API_KEY
     #   Congress.legislators
     def legislators(options={})
       get('/legislators', options.merge(api_key))
@@ -20,7 +20,7 @@ module Congress
     #
     # @return [Hashie::Rash]
     # @example
-    #   Congress.key = YOUR_RTC_API_KEY
+    #   Congress.key = YOUR_SUNLIGHT_API_KEY
     #   Congress.legislators_locate(94107)
     #   Congress.legislators_locate(37.775, -122.418)
     def legislators_locate(*args)
@@ -32,7 +32,7 @@ module Congress
     #
     # @return [Hashie::Rash]
     # @example
-    #   Congress.key = YOUR_RTC_API_KEY
+    #   Congress.key = YOUR_SUNLIGHT_API_KEY
     #   Congress.districts_locate(94107)
     #   Congress.districts_locate(37.775, -122.418)
     def districts_locate(*args)
@@ -44,7 +44,7 @@ module Congress
     #
     # @return [Hashie::Rash]
     # @example
-    #   Congress.key = YOUR_RTC_API_KEY
+    #   Congress.key = YOUR_SUNLIGHT_API_KEY
     #   Congress.committees
     def committees(options={})
       get('/committees', options.merge(api_key))
@@ -54,7 +54,7 @@ module Congress
     #
     # @return [Hashie::Rash]
     # @example
-    #   Congress.key = YOUR_RTC_API_KEY
+    #   Congress.key = YOUR_SUNLIGHT_API_KEY
     #   Congress.bills
     def bills(options={})
       get('/bills', options.merge(api_key))
@@ -64,7 +64,7 @@ module Congress
     #
     # @return [Hashie::Rash]
     # @example
-    #   Congress.key = YOUR_RTC_API_KEY
+    #   Congress.key = YOUR_SUNLIGHT_API_KEY
     #   Congress.bills_search
     def bills_search(options={})
       get('/bills/search', options.merge(api_key))
@@ -74,7 +74,7 @@ module Congress
     #
     # @return [Hashie::Rash]
     # @example
-    #   Congress.key = YOUR_RTC_API_KEY
+    #   Congress.key = YOUR_SUNLIGHT_API_KEY
     #   Congress.votes
     def votes(options={})
       get('/votes', options.merge(api_key))
@@ -84,7 +84,7 @@ module Congress
     #
     # @return [Hashie::Rash]
     # @example
-    #   Congress.key = YOUR_RTC_API_KEY
+    #   Congress.key = YOUR_SUNLIGHT_API_KEY
     #   Congress.floor_updates
     def floor_updates(options={})
       get('/floor_updates', options.merge(api_key))
@@ -94,7 +94,7 @@ module Congress
     #
     # @return [Hashie::Rash]
     # @example
-    #   Congress.key = YOUR_RTC_API_KEY
+    #   Congress.key = YOUR_SUNLIGHT_API_KEY
     #   Congress.hearings
     def hearings(options={})
       get('/hearings', options.merge(api_key))
@@ -104,7 +104,7 @@ module Congress
     #
     # @return [Hashie::Rash]
     # @example
-    #   Congress.key = YOUR_RTC_API_KEY
+    #   Congress.key = YOUR_SUNLIGHT_API_KEY
     #   Congress.upcoming_bills
     def upcoming_bills(options={})
       get('/upcoming_bills', options.merge(api_key))
