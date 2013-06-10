@@ -5,6 +5,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'faraday', '~> 0.8.7'
   spec.add_dependency 'faraday_middleware', '~> 0.9.0'
   spec.add_dependency 'hashie', '~> 2.0'
+  spec.add_dependency 'json', '~> 1.8'
   spec.add_dependency 'rash', '~> 0.4'
   spec.add_development_dependency 'bundler', '~> 1.0'
   spec.author        = "Erik Michaels-Ober"
