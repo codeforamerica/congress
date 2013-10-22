@@ -42,6 +42,7 @@ All requests to the Congress API require a Sunlight API key. An API key is
 
 ###### Setup
 ```ruby
+require 'json'
 require 'congress'
 Congress.key = YOUR_SUNLIGHT_API_KEY
 ```
