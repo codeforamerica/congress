@@ -13,6 +13,7 @@ end
 
 group :test do
   gem 'coveralls', :require => false
+  gem 'mime-types', '~> 1.25', :platforms => :ruby_18
   gem 'rspec'
   gem 'simplecov', :require => false
   gem 'webmock'
