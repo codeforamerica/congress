@@ -23,9 +23,9 @@ public key as a trusted certificate (you only need to do this once):
 
     gem cert --add <(curl -Ls https://raw.github.com/codeforamerica/congress/master/certs/sferik.pem)
 
-Then, install the gem with the high security trust policy:
+Then, install the gem with the medium security trust policy:
 
-    gem install congress -P HighSecurity
+    gem install congress -P MediumSecurity
 
 ## Documentation
 [http://rdoc.info/gems/congress][documentation]
