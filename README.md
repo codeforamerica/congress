@@ -17,16 +17,6 @@ Congress, provided by the Sunlight Foundation.
 ## Installation
     gem install congress
 
-To ensure the code you're installing hasn't been tampered with, it's
-recommended that you verify the signature. To do this, you need to add my
-public key as a trusted certificate (you only need to do this once):
-
-    gem cert --add <(curl -Ls https://raw.github.com/codeforamerica/congress/master/certs/sferik.pem)
-
-Then, install the gem with the medium security trust policy:
-
-    gem install congress -P MediumSecurity
-
 ## Documentation
 [http://rdoc.info/gems/congress][documentation]
 [documentation]: http://rdoc.info/gems/congress
