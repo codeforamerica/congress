@@ -7,7 +7,7 @@ module Congress
     private
 
     def connection
-      Faraday.new(:url => ENDPOINT) do |connection|
+      @connection ||= Faraday.new(:url => ENDPOINT) do |connection|
         connection.use Faraday::Request::UrlEncoded
         connection.use Faraday::Response::RaiseError
         connection.use Faraday::Response::Rashify
