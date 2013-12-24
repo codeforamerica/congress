@@ -13,7 +13,7 @@ module Congress
     #   Congress.key = YOUR_SUNLIGHT_API_KEY
     #   Congress.legislators
     def legislators(options={})
-      get('/legislators', options.merge(api_key))
+      get('/legislators', options)
     end
 
     # Find representatives and senators for a latitude/longitude or zip.
@@ -25,7 +25,7 @@ module Congress
     #   Congress.legislators_locate(37.775, -122.418)
     def legislators_locate(*args)
       options = extract_location(args)
-      get('/legislators/locate', options.merge(api_key))
+      get('/legislators/locate', options)
     end
 
     # Find congressional districts for a latitude/longitude or zip.
@@ -37,7 +37,7 @@ module Congress
     #   Congress.districts_locate(37.775, -122.418)
     def districts_locate(*args)
       options = extract_location(args)
-      get('/districts/locate', options.merge(api_key))
+      get('/districts/locate', options)
     end
 
     # Current committees, subcommittees, and their membership.
@@ -47,7 +47,7 @@ module Congress
     #   Congress.key = YOUR_SUNLIGHT_API_KEY
     #   Congress.committees
     def committees(options={})
-      get('/committees', options.merge(api_key))
+      get('/committees', options)
     end
 
     # Legislation in the House and Senate, back to 2009. Updated daily.
@@ -57,7 +57,7 @@ module Congress
     #   Congress.key = YOUR_SUNLIGHT_API_KEY
     #   Congress.bills
     def bills(options={})
-      get('/bills', options.merge(api_key))
+      get('/bills', options)
     end
 
     # ull text search over legislation.
@@ -67,7 +67,7 @@ module Congress
     #   Congress.key = YOUR_SUNLIGHT_API_KEY
     #   Congress.bills_search
     def bills_search(options={})
-      get('/bills/search', options.merge(api_key))
+      get('/bills/search', options)
     end
 
     # Roll call votes in Congress, back to 2009. Updated within minutes of votes.
@@ -77,7 +77,7 @@ module Congress
     #   Congress.key = YOUR_SUNLIGHT_API_KEY
     #   Congress.votes
     def votes(options={})
-      get('/votes', options.merge(api_key))
+      get('/votes', options)
     end
 
     # To-the-minute updates from the floor of the House and Senate.
@@ -87,7 +87,7 @@ module Congress
     #   Congress.key = YOUR_SUNLIGHT_API_KEY
     #   Congress.floor_updates
     def floor_updates(options={})
-      get('/floor_updates', options.merge(api_key))
+      get('/floor_updates', options)
     end
 
     # Committee hearings in Congress. Updated as hearings are announced.
@@ -97,7 +97,7 @@ module Congress
     #   Congress.key = YOUR_SUNLIGHT_API_KEY
     #   Congress.hearings
     def hearings(options={})
-      get('/hearings', options.merge(api_key))
+      get('/hearings', options)
     end
 
     # Bills scheduled for debate in the future, as announced by party leadership.
@@ -107,14 +107,10 @@ module Congress
     #   Congress.key = YOUR_SUNLIGHT_API_KEY
     #   Congress.upcoming_bills
     def upcoming_bills(options={})
-      get('/upcoming_bills', options.merge(api_key))
+      get('/upcoming_bills', options)
     end
 
   private
-
-    def api_key
-      {:apikey => Congress.key}
-    end
 
     def extract_location(args)
       options = args.last.is_a?(::Hash) ? args.pop : {}

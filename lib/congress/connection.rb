@@ -2,10 +2,12 @@ require 'faraday_middleware'
 
 module Congress
   module Connection
+    ENDPOINT = 'https://congress.api.sunlightfoundation.com'
+
     private
 
     def connection
-      Faraday.new(:url => 'http://congress.api.sunlightfoundation.com') do |connection|
+      @connection ||= Faraday.new(:url => ENDPOINT) do |connection|
         connection.use Faraday::Request::UrlEncoded
         connection.use Faraday::Response::RaiseError
         connection.use Faraday::Response::Rashify

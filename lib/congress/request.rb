@@ -8,6 +8,7 @@ module Congress
 
     def request(method, path, options)
       response = connection.send(method) do |request|
+        request.headers[:'X-APIKEY'] = Congress.key
         request.url(path, options)
       end
       response.body
