@@ -12,7 +12,7 @@ module Congress
     # @example
     #   Congress.key = YOUR_SUNLIGHT_API_KEY
     #   Congress.legislators
-    def legislators(options={})
+    def legislators(options = {})
       get('/legislators', options.merge(api_key))
     end
 
@@ -46,7 +46,7 @@ module Congress
     # @example
     #   Congress.key = YOUR_SUNLIGHT_API_KEY
     #   Congress.committees
-    def committees(options={})
+    def committees(options = {})
       get('/committees', options.merge(api_key))
     end
 
@@ -56,7 +56,7 @@ module Congress
     # @example
     #   Congress.key = YOUR_SUNLIGHT_API_KEY
     #   Congress.bills
-    def bills(options={})
+    def bills(options = {})
       get('/bills', options.merge(api_key))
     end
 
@@ -66,7 +66,7 @@ module Congress
     # @example
     #   Congress.key = YOUR_SUNLIGHT_API_KEY
     #   Congress.bills_search
-    def bills_search(options={})
+    def bills_search(options = {})
       get('/bills/search', options.merge(api_key))
     end
 
@@ -76,7 +76,7 @@ module Congress
     # @example
     #   Congress.key = YOUR_SUNLIGHT_API_KEY
     #   Congress.votes
-    def votes(options={})
+    def votes(options = {})
       get('/votes', options.merge(api_key))
     end
 
@@ -86,7 +86,7 @@ module Congress
     # @example
     #   Congress.key = YOUR_SUNLIGHT_API_KEY
     #   Congress.floor_updates
-    def floor_updates(options={})
+    def floor_updates(options = {})
       get('/floor_updates', options.merge(api_key))
     end
 
@@ -96,7 +96,7 @@ module Congress
     # @example
     #   Congress.key = YOUR_SUNLIGHT_API_KEY
     #   Congress.hearings
-    def hearings(options={})
+    def hearings(options = {})
       get('/hearings', options.merge(api_key))
     end
 
@@ -106,7 +106,7 @@ module Congress
     # @example
     #   Congress.key = YOUR_SUNLIGHT_API_KEY
     #   Congress.upcoming_bills
-    def upcoming_bills(options={})
+    def upcoming_bills(options = {})
       get('/upcoming_bills', options.merge(api_key))
     end
 
@@ -125,10 +125,9 @@ module Congress
         options[:longitude] = args.pop
         options[:latitude] = args.pop
       else
-        raise ArgumentError, "Must pass a latitude/longitude or zip"
+        fail ArgumentError, 'Must pass a latitude/longitude or zip'
       end
       options
     end
-
   end
 end

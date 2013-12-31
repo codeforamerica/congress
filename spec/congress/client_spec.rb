@@ -4,7 +4,7 @@ describe Congress::Client do
   before do
     @client = Congress::Client.new
     Congress.configure do |config|
-      config.key = "abc123"
+      config.key = 'abc123'
     end
   end
 
@@ -15,81 +15,72 @@ describe Congress::Client do
     end
     it "fetches current legislators' names, IDs, biography, and social media" do
       legislators = @client.legislators
-      a_get('/legislators?apikey=abc123').
-        should have_been_made
-      legislators['count'].should == 539
-      legislators['results'].first.bioguide_id.should == "K000385"
+      expect(a_get('/legislators?apikey=abc123')).to have_been_made
+      expect(legislators['count']).to eq(539)
+      expect(legislators['results'].first.bioguide_id).to eq('K000385')
     end
   end
 
   describe '#legislators_locate' do
-    context "with a zip code passed" do
+    context 'with a zip code passed' do
       before do
         stub_get('/legislators/locate?apikey=abc123&zip=94107').
           to_return(:status => 200, :body => fixture('legislators_locate.json'))
       end
-      it "fetches representatives and senators for a zip code" do
+      it 'fetches representatives and senators for a zip code' do
         legislators_locate = @client.legislators_locate(94107)
-        a_get('/legislators/locate?apikey=abc123&zip=94107').
-          should have_been_made
-        legislators_locate['count'].should == 3
-        legislators_locate['results'].first.bioguide_id.should == "P000197"
+        expect(a_get('/legislators/locate?apikey=abc123&zip=94107')).to have_been_made
+        expect(legislators_locate['count']).to eq(3)
+        expect(legislators_locate['results'].first.bioguide_id).to eq('P000197')
       end
     end
-    context "with a latitude and longitude passed" do
+    context 'with a latitude and longitude passed' do
       before do
         stub_get('/legislators/locate?apikey=abc123&latitude=37.775&longitude=-122.418').
           to_return(:status => 200, :body => fixture('legislators_locate.json'))
       end
-      it "fetches representatives and senators for a latitude/longitude pir" do
+      it 'fetches representatives and senators for a latitude/longitude pir' do
         legislators_locate = @client.legislators_locate(37.775, -122.418)
-        a_get('/legislators/locate?apikey=abc123&latitude=37.775&longitude=-122.418').
-          should have_been_made
-        legislators_locate['count'].should == 3
-        legislators_locate['results'].first.bioguide_id.should == "P000197"
+        expect(a_get('/legislators/locate?apikey=abc123&latitude=37.775&longitude=-122.418')).to have_been_made
+        expect(legislators_locate['count']).to eq(3)
+        expect(legislators_locate['results'].first.bioguide_id).to eq('P000197')
       end
     end
-    context "with no arguments passed" do
-      it "raises an argument error" do
-        lambda {
-          @client.legislators_locate
-        }.should raise_error ArgumentError
+    context 'with no arguments passed' do
+      it 'raises an argument error' do
+        expect { @client.legislators_locate }.to raise_error ArgumentError
       end
     end
   end
 
   describe '#districts_locate' do
-    context "with a zip code passed" do
+    context 'with a zip code passed' do
       before do
         stub_get('/districts/locate?apikey=abc123&zip=94107').
           to_return(:status => 200, :body => fixture('districts_locate.json'))
       end
-      it "fetches congressional districts for a zip code" do
+      it 'fetches congressional districts for a zip code' do
         districts_locate = @client.districts_locate(94107)
-        a_get('/districts/locate?apikey=abc123&zip=94107').
-          should have_been_made
-        districts_locate['count'].should == 1
-        districts_locate['results'].first.district.should == 12
+        expect(a_get('/districts/locate?apikey=abc123&zip=94107')).to have_been_made
+        expect(districts_locate['count']).to eq(1)
+        expect(districts_locate['results'].first.district).to eq(12)
       end
     end
-    context "with a latitude and longitude passed" do
+    context 'with a latitude and longitude passed' do
       before do
         stub_get('/districts/locate?apikey=abc123&latitude=37.775&longitude=-122.418').
           to_return(:status => 200, :body => fixture('districts_locate.json'))
       end
-      it "fetches congressional districts for a latitude/longitude pair" do
+      it 'fetches congressional districts for a latitude/longitude pair' do
         districts_locate = @client.districts_locate(37.775, -122.418)
-        a_get('/districts/locate?apikey=abc123&latitude=37.775&longitude=-122.418').
-          should have_been_made
-        districts_locate['count'].should == 1
-        districts_locate['results'].first.district.should == 12
+        expect(a_get('/districts/locate?apikey=abc123&latitude=37.775&longitude=-122.418')).to have_been_made
+        expect(districts_locate['count']).to eq(1)
+        expect(districts_locate['results'].first.district).to eq(12)
       end
     end
-    context "with no arguments passed" do
-      it "raises an argument error" do
-        lambda {
-          @client.districts_locate
-        }.should raise_error ArgumentError
+    context 'with no arguments passed' do
+      it 'raises an argument error' do
+        expect { @client.districts_locate }.to raise_error ArgumentError
       end
     end
   end
@@ -99,12 +90,11 @@ describe Congress::Client do
       stub_get('/committees?apikey=abc123').
         to_return(:status => 200, :body => fixture('committees.json'))
     end
-    it "fetches current committees, subcommittees, and their membership" do
+    it 'fetches current committees, subcommittees, and their membership' do
       committees = @client.committees
-      a_get('/committees?apikey=abc123').
-        should have_been_made
-      committees['count'].should == 120
-      committees['results'].first.chamber.should == "senate"
+      expect(a_get('/committees?apikey=abc123')).to have_been_made
+      expect(committees['count']).to eq(120)
+      expect(committees['results'].first.chamber).to eq('senate')
     end
   end
 
@@ -113,12 +103,11 @@ describe Congress::Client do
       stub_get('/bills?apikey=abc123').
         to_return(:status => 200, :body => fixture('bills.json'))
     end
-    it "fetches legislation in the House and Senate" do
+    it 'fetches legislation in the House and Senate' do
       bills = @client.bills
-      a_get('/bills?apikey=abc123').
-        should have_been_made
-      bills['count'].should == 28614
-      bills['results'].first.bill_id.should == "s730-113"
+      expect(a_get('/bills?apikey=abc123')).to have_been_made
+      expect(bills['count']).to eq(28614)
+      expect(bills['results'].first.bill_id).to eq('s730-113')
     end
   end
 
@@ -127,12 +116,11 @@ describe Congress::Client do
       stub_get('/bills/search?apikey=abc123').
         to_return(:status => 200, :body => fixture('bills_search.json'))
     end
-    it "fetches legislation" do
+    it 'fetches legislation' do
       bills_search = @client.bills_search
-      a_get('/bills/search?apikey=abc123').
-        should have_been_made
-      bills_search['count'].should == 28614
-      bills_search['results'].first.bill_type.should == "hr"
+      expect(a_get('/bills/search?apikey=abc123')).to have_been_made
+      expect(bills_search['count']).to eq(28614)
+      expect(bills_search['results'].first.bill_type).to eq('hr')
     end
   end
 
@@ -141,12 +129,11 @@ describe Congress::Client do
       stub_get('/votes?apikey=abc123').
         to_return(:status => 200, :body => fixture('votes.json'))
     end
-    it "fetches roll call votes in Congress" do
+    it 'fetches roll call votes in Congress' do
       votes = @client.votes
-      a_get('/votes?apikey=abc123').
-        should have_been_made
-      votes['count'].should == 4647
-      votes['results'].first.roll_id.should == "h106-2013"
+      expect(a_get('/votes?apikey=abc123')).to have_been_made
+      expect(votes['count']).to eq(4647)
+      expect(votes['results'].first.roll_id).to eq('h106-2013')
     end
   end
 
@@ -155,12 +142,11 @@ describe Congress::Client do
       stub_get('/floor_updates?apikey=abc123').
         to_return(:status => 200, :body => fixture('floor_updates.json'))
     end
-    it "fetches to-the-minute updates from the floor of the House and Senate" do
+    it 'fetches to-the-minute updates from the floor of the House and Senate' do
       floor_updates = @client.floor_updates
-      a_get('/floor_updates?apikey=abc123').
-        should have_been_made
-      floor_updates['count'].should == 3066
-      floor_updates['results'].first.chamber.should == "senate"
+      expect(a_get('/floor_updates?apikey=abc123')).to have_been_made
+      expect(floor_updates['count']).to eq(3066)
+      expect(floor_updates['results'].first.chamber).to eq('senate')
     end
   end
 
@@ -169,12 +155,11 @@ describe Congress::Client do
       stub_get('/hearings?apikey=abc123').
         to_return(:status => 200, :body => fixture('hearings.json'))
     end
-    it "fetches committee hearings in Congress" do
+    it 'fetches committee hearings in Congress' do
       hearings = @client.hearings
-      a_get('/hearings?apikey=abc123').
-        should have_been_made
-      hearings['count'].should == 1279
-      hearings['results'].first.committee_id.should == "SSFR"
+      expect(a_get('/hearings?apikey=abc123')).to have_been_made
+      expect(hearings['count']).to eq(1279)
+      expect(hearings['results'].first.committee_id).to eq('SSFR')
     end
   end
 
@@ -183,12 +168,11 @@ describe Congress::Client do
       stub_get('/upcoming_bills?apikey=abc123').
         to_return(:status => 200, :body => fixture('upcoming_bills.json'))
     end
-    it "fetches bills scheduled for debate in the future, as announced by party leadership" do
+    it 'fetches bills scheduled for debate in the future, as announced by party leadership' do
       upcoming_bills = @client.upcoming_bills
-      a_get('/upcoming_bills?apikey=abc123').
-        should have_been_made
-      upcoming_bills['count'].should == 9
-      upcoming_bills['results'].first.bill_id.should == "s3457-113"
+      expect(a_get('/upcoming_bills?apikey=abc123')).to have_been_made
+      expect(upcoming_bills['count']).to eq(9)
+      expect(upcoming_bills['results'].first.bill_id).to eq('s3457-113')
     end
   end
 

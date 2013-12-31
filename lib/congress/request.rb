@@ -1,10 +1,10 @@
 module Congress
   module Request
-    def get(path, options={})
+    def get(path, options = {})
       request(:get, path, options)
     end
 
-    private
+  private
 
     def request(method, path, options)
       response = connection.send(method) do |request|

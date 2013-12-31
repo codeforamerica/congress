@@ -2,7 +2,7 @@ require 'faraday_middleware'
 
 module Congress
   module Connection
-    private
+  private
 
     def connection
       Faraday.new(:url => 'http://congress.api.sunlightfoundation.com') do |connection|
