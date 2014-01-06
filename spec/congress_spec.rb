@@ -5,11 +5,8 @@ describe Congress do
     it 'returns a Congress::Client' do
       expect(Congress.new).to be_a Congress::Client
     end
-  end
-
-  describe '.configure' do
-    it "sets 'name' and 'pass'" do
-      Congress.configure do |c|
+    it 'sets key with a blog' do
+      Congress.new do |c|
         c.key = 'abc123'
       end
       expect(Congress.key).to eq('abc123')

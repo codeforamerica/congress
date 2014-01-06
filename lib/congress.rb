@@ -4,14 +4,11 @@ module Congress
   extend self # rubocop:disable ModuleFunction
   attr_accessor :key
 
-  def configure
-    yield self
-  end
-
   # Alias for Congress::Client.new
   #
   # @return [Congress::Client]
   def new(key = key)
+    yield self if block_given?
     return @client if instance_variable_defined?(:@client) && @client.key == key
     @client = Congress::Client.new(key)
   end
