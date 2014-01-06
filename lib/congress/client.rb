@@ -24,8 +24,7 @@ module Congress
     #   Congress.legislators_locate(94107)
     #   Congress.legislators_locate(37.775, -122.418)
     def legislators_locate(*args)
-      options = extract_location(args)
-      get('/legislators/locate', options)
+      get('/legislators/locate', extract_location(args))
     end
 
     # Find congressional districts for a latitude/longitude or zip.
@@ -36,8 +35,7 @@ module Congress
     #   Congress.districts_locate(94107)
     #   Congress.districts_locate(37.775, -122.418)
     def districts_locate(*args)
-      options = extract_location(args)
-      get('/districts/locate', options)
+      get('/districts/locate', extract_location(args))
     end
 
     # Current committees, subcommittees, and their membership.
@@ -116,14 +114,12 @@ module Congress
       options = args.last.is_a?(::Hash) ? args.pop : {}
       case args.size
       when 1
-        options[:zip] = args.pop
+        options.merge(:zip => args.pop)
       when 2
-        options[:longitude] = args.pop
-        options[:latitude] = args.pop
+        options.merge(:longitude => args.pop, :latitude => args.pop)
       else
         fail ArgumentError, 'Must pass a latitude/longitude or zip'
       end
-      options
     end
   end
 end
