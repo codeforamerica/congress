@@ -118,6 +118,6 @@ timely fashion. If critical issues for a particular implementation exist at the
 time of a major release, support for that Ruby version may be dropped.
 
 ## Copyright
-Copyright (c) 2011-2013, Code for America. See [LICENSE][] for details.
+Copyright (c) 2011-2014, Code for America. See [LICENSE][] for details.
 
 [license]: https://github.com/codeforamerica/congress/blob/master/LICENSE.md
