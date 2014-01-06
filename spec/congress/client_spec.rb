@@ -2,10 +2,7 @@ require 'helper'
 
 describe Congress::Client do
   before do
-    @client = Congress::Client.new
-    Congress.configure do |config|
-      config.key = 'abc123'
-    end
+    @client = Congress::Client.new('abc123')
   end
 
   describe '#legislators' do

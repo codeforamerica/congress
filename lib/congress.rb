@@ -11,8 +11,9 @@ module Congress
   # Alias for Congress::Client.new
   #
   # @return [Congress::Client]
-  def new
-    Congress::Client.new
+  def new(key = key)
+    return @client if instance_variable_defined?(:@client) && @client.key == key
+    @client = Congress::Client.new(key)
   end
 
   # Delegate to Congress::Client
@@ -21,7 +22,9 @@ module Congress
     new.send(method, *args, &block)
   end
 
-  def respond_to?(method, include_private = false)
-    new.respond_to?(method, include_private) || super(method, include_private)
-  end
+  # @return [Boolean]
+  def respond_to?(method, include_private = false) new.respond_to?(method, include_private) end if RUBY_VERSION < '1.9' # rubocop:disable SingleLineMethods
+
+  # @return [Boolean]
+  def respond_to_missing?(method_name, include_private = false) new.respond_to?(method_name, include_private) end if RUBY_VERSION >= '1.9' # rubocop:disable SingleLineMethods
 end

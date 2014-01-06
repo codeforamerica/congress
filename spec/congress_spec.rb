@@ -15,4 +15,17 @@ describe Congress do
       expect(Congress.key).to eq('abc123')
     end
   end
+
+  describe '.method_missing' do
+    before do
+      stub_get('/legislators').
+        to_return(:status => 200, :body => fixture('legislators.json'))
+    end
+    it 'delegates to an instance of Congress::Client' do
+      Congress.key = 'abc123'
+      client = Congress.new
+      expect(client).to receive(:legislators)
+      Congress.legislators
+    end
+  end
 end

@@ -5,6 +5,11 @@ module Congress
   class Client
     include Connection
     include Request
+    attr_reader :key
+
+    def initialize(key)
+      @key = key
+    end
 
     # Current legislators' names, IDs, biography, and social media.
     #
