@@ -1,5 +1,6 @@
 require 'congress/connection'
 require 'congress/request'
+require 'geocoder'
 
 module Congress
   class Client
@@ -22,24 +23,26 @@ module Congress
       get('/legislators', options)
     end
 
-    # Find representatives and senators for a latitude/longitude or zip.
+    # Find representatives and senators for a latitude/longitude, zip, or address.
     #
     # @return [Hashie::Rash]
     # @example
     #   Congress.key = YOUR_SUNLIGHT_API_KEY
     #   Congress.legislators_locate(94107)
     #   Congress.legislators_locate(37.775, -122.418)
+    #   Congress.legislators_locate('2169 Mission Street, San Francisco, CA 94110')
     def legislators_locate(*args)
       get('/legislators/locate', extract_location(args))
     end
 
-    # Find congressional districts for a latitude/longitude or zip.
+    # Find congressional districts for a latitude/longitude, zip, or address.
     #
     # @return [Hashie::Rash]
     # @example
     #   Congress.key = YOUR_SUNLIGHT_API_KEY
     #   Congress.districts_locate(94107)
     #   Congress.districts_locate(37.775, -122.418)
+    #   Congress.districts_locate('2169 Mission Street, San Francisco, CA 94110')
     def districts_locate(*args)
       get('/districts/locate', extract_location(args))
     end
@@ -118,13 +121,16 @@ module Congress
 
     def extract_location(args)
       options = args.last.is_a?(::Hash) ? args.pop : {}
-      case args.size
-      when 1
+      case [args.size, args.first.class]
+      when [1, Fixnum]
         options.merge(:zip => args.pop)
-      when 2
+      when [1, String]
+        placemark = Geocoder.search(args.pop).first
+        options.merge(:longitude => placemark.longitude, :latitude => placemark.latitude)
+      when [2, Float]
         options.merge(:longitude => args.pop, :latitude => args.pop)
       else
-        fail ArgumentError, 'Must pass a latitude/longitude or zip'
+        fail ArgumentError, 'Must pass a latitude/longitude, zip or address'
       end
     end
   end

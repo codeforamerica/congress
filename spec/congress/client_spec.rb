@@ -1,6 +1,8 @@
 require 'helper'
 
 describe Congress::Client do
+  let(:gmaps_api) { 'http://maps.googleapis.com/maps/api/geocode/json?address=2169%20Mission%20Street,%20San%20Francisco,%20CA%2094110&language=en&sensor=false' }
+
   before do
     @client = Congress::Client.new('abc123')
   end
@@ -36,8 +38,22 @@ describe Congress::Client do
         stub_get('/legislators/locate?latitude=37.775&longitude=-122.418').
           to_return(:status => 200, :body => fixture('legislators_locate.json'))
       end
-      it 'fetches representatives and senators for a latitude/longitude pir' do
+      it 'fetches representatives and senators for a latitude/longitude pair' do
         legislators_locate = @client.legislators_locate(37.775, -122.418)
+        expect(a_get('/legislators/locate?latitude=37.775&longitude=-122.418').with(:headers => {'X-APIKEY' => 'abc123'})).to have_been_made
+        expect(legislators_locate['count']).to eq(3)
+        expect(legislators_locate['results'].first.bioguide_id).to eq('P000197')
+      end
+    end
+    context 'with an address passed' do
+      before do
+        stub_get('/legislators/locate?latitude=37.775&longitude=-122.418').
+          to_return(:status => 200, :body => fixture('legislators_locate.json'))
+        stub_request(:get, gmaps_api).to_return(:status => 200, :body => fixture('google_geocoding.json'))
+      end
+      it 'fetches representatives and senators for an address' do
+        legislators_locate = @client.legislators_locate('2169 Mission Street, San Francisco, CA 94110')
+        expect(a_request(:get, gmaps_api)).to have_been_made
         expect(a_get('/legislators/locate?latitude=37.775&longitude=-122.418').with(:headers => {'X-APIKEY' => 'abc123'})).to have_been_made
         expect(legislators_locate['count']).to eq(3)
         expect(legislators_locate['results'].first.bioguide_id).to eq('P000197')
@@ -70,6 +86,20 @@ describe Congress::Client do
       end
       it 'fetches congressional districts for a latitude/longitude pair' do
         districts_locate = @client.districts_locate(37.775, -122.418)
+        expect(a_get('/districts/locate?latitude=37.775&longitude=-122.418').with(:headers => {'X-APIKEY' => 'abc123'})).to have_been_made
+        expect(districts_locate['count']).to eq(1)
+        expect(districts_locate['results'].first.district).to eq(12)
+      end
+    end
+    context 'with an address passed' do
+      before do
+        stub_get('/districts/locate?latitude=37.775&longitude=-122.418').
+          to_return(:status => 200, :body => fixture('districts_locate.json'))
+        stub_request(:get, gmaps_api).to_return(:status => 200, :body => fixture('google_geocoding.json'))
+      end
+      it 'fetches congressional districts for an address' do
+        districts_locate = @client.districts_locate('2169 Mission Street, San Francisco, CA 94110')
+        expect(a_request(:get, gmaps_api)).to have_been_made
         expect(a_get('/districts/locate?latitude=37.775&longitude=-122.418').with(:headers => {'X-APIKEY' => 'abc123'})).to have_been_made
         expect(districts_locate['count']).to eq(1)
         expect(districts_locate['results'].first.district).to eq(12)
