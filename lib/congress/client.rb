@@ -67,7 +67,7 @@ module Congress
       get('/bills', options)
     end
 
-    # ull text search over legislation.
+    # Full text search over legislation.
     #
     # @return [Hashie::Rash]
     # @example
