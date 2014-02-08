@@ -123,7 +123,7 @@ module Congress
       options = args.last.is_a?(::Hash) ? args.pop : {}
       case [args.size, args.first.class]
       when [1, Fixnum]
-        options.merge(:zip => args.pop)
+        options.merge(:zip => to_zip_code(args.pop))
       when [1, String]
         placemark = Geocoder.search(args.pop).first
         options.merge(:longitude => placemark.longitude, :latitude => placemark.latitude)
@@ -132,6 +132,13 @@ module Congress
       else
         fail ArgumentError, 'Must pass a latitude/longitude, zip or address'
       end
+    end
+
+    # Proper zip code from a number, adding leading zeroes if required
+    # @param number [Integer] zip code as an integer
+    # @return [String]
+    def to_zip_code(number)
+      sprintf('%05d', number)
     end
   end
 end
