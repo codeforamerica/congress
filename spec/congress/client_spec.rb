@@ -23,7 +23,7 @@ describe Congress::Client do
   describe '#legislators_locate' do
     context 'with a zip code passed' do
       before do
-        stub_get('/legislators/locate?zip=94107').
+        stub_get('/legislators/locate').with(:query => hash_including('zip')).
           to_return(:status => 200, :body => fixture('legislators_locate.json'))
       end
       it 'fetches representatives and senators for a zip code' do
@@ -31,6 +31,12 @@ describe Congress::Client do
         expect(a_get('/legislators/locate?zip=94107').with(:headers => {'X-APIKEY' => 'abc123'})).to have_been_made
         expect(legislators_locate['count']).to eq(3)
         expect(legislators_locate['results'].first.bioguide_id).to eq('P000197')
+      end
+      context 'zip code with leading zeroes' do
+        it 'pads with leading zeroes' do
+          @client.legislators_locate(6511)
+          expect(a_get('/legislators/locate?zip=06511').with(:headers => {'X-APIKEY' => 'abc123'})).to have_been_made
+        end
       end
     end
     context 'with a latitude and longitude passed' do
