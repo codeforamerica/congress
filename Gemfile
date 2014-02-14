@@ -8,7 +8,6 @@ gem 'geocoder'
 group :development do
   gem 'kramdown'
   gem 'pry'
-  gem 'pry-rescue'
   platforms :ruby_19, :ruby_20 do
     gem 'pry-debugger'
     gem 'pry-stack_explorer'
