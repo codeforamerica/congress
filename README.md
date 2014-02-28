@@ -1,10 +1,11 @@
 # Ruby wrapper for the Sunlight Congress API
 
-[![Gem Version](https://badge.fury.io/rb/congress.png)][gem]
-[![Build Status](https://secure.travis-ci.org/codeforamerica/congress.png)][travis]
-[![Dependency Status](https://gemnasium.com/codeforamerica/congress.png?travis)][gemnasium]
-[![Code Climate](https://codeclimate.com/github/codeforamerica/congress.png)][codeclimate]
-[![Coverage Status](https://coveralls.io/repos/codeforamerica/congress/badge.png?branch=master)][coveralls]
+[![Gem Version](http://img.shields.io/gem/v/congress.svg)][gem]
+[![Build Status](http://img.shields.io/travis/codeforamerica/congress.svg)][travis]
+[![Dependency Status](http://img.shields.io/gemnasium/codeforamerica/congress.svg)][gemnasium]
+[![Code Climate](http://img.shields.io/codeclimate/github/codeforamerica/congress.svg)][codeclimate]
+[![Coverage Status](http://img.shields.io/coveralls/codeforamerica/congress.svg)][coveralls]
+
 [gem]: https://rubygems.org/gems/congress
 [travis]: http://travis-ci.org/codeforamerica/congress
 [gemnasium]: https://gemnasium.com/codeforamerica/congress
