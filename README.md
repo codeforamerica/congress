@@ -39,8 +39,13 @@ Congress.key = YOUR_SUNLIGHT_API_KEY
 
 ###### Fetch current legislators' names, IDs, biography, and social media
 ```ruby
+# default is 20 per page
 Congress.legislators
+
+# per-page option can be passed in
+Congress.legislators(per_page: "all")
 ```
+
 
 ###### Fetch representatives and senators for a latitude/longitude or zip code
 ```ruby
