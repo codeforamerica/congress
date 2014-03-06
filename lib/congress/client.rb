@@ -18,6 +18,7 @@ module Congress
     # @example
     #   Congress.key = YOUR_SUNLIGHT_API_KEY
     #   Congress.legislators
+    #   Congress.legislators(per_page: "all")
     def legislators(options = {})
       get('/legislators', options)
     end
