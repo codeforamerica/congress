@@ -13,6 +13,7 @@ module Congress
     end
 
     # Current legislators' names, IDs, biography, and social media.
+    # per_page=all option only allowed on legislators collection
     #
     # @return [Hashie::Rash]
     # @example
