@@ -120,24 +120,26 @@ module Congress
 
     def extract_location(args)
       options = args.last.is_a?(::Hash) ? args.pop : {}
-      case [args.size, args.first.class]
-      when [1, Fixnum]
-        options.merge(:zip => to_zip_code(args.pop))
-      when [1, String]
-        placemark = Geocoder.search(args.pop).first
-        options.merge(:longitude => placemark.longitude, :latitude => placemark.latitude)
-      when [2, Float]
-        options.merge(:longitude => args.pop, :latitude => args.pop)
-      else
-        fail ArgumentError, 'Must pass a latitude/longitude, zip or address'
+      case args.size
+      when 1
+        case args[0]
+        when Integer
+          options.merge!(:zip => to_zip_code(args[0]))
+        when String
+          placemark = Geocoder.search(args[0]).first
+          options.merge!(:latitude => placemark.latitude, :longitude => placemark.longitude)
+        end
+      when 2
+        options.merge!(:latitude => args[0], :longitude => args[1])
       end
+      options
     end
 
     # Proper zip code from a number, adding leading zeroes if required
     # @param number [Integer] zip code as an integer
     # @return [String]
     def to_zip_code(number)
-      sprintf('%05d', number)
+      format('%05d', number)
     end
   end
 end

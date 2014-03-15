@@ -65,11 +65,6 @@ describe Congress::Client do
         expect(legislators_locate['results'].first.bioguide_id).to eq('P000197')
       end
     end
-    context 'with no arguments passed' do
-      it 'raises an argument error' do
-        expect { @client.legislators_locate }.to raise_error ArgumentError
-      end
-    end
   end
 
   describe '#districts_locate' do
@@ -109,11 +104,6 @@ describe Congress::Client do
         expect(a_get('/districts/locate?latitude=37.775&longitude=-122.418').with(:headers => {'X-APIKEY' => 'abc123'})).to have_been_made
         expect(districts_locate['count']).to eq(1)
         expect(districts_locate['results'].first.district).to eq(12)
-      end
-    end
-    context 'with no arguments passed' do
-      it 'raises an argument error' do
-        expect { @client.districts_locate }.to raise_error ArgumentError
       end
     end
   end
