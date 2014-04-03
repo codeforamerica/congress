@@ -123,7 +123,7 @@ module Congress
       case args.size
       when 1
         case args[0]
-        when Integer
+        when Integer, /\A[\d]{5}\Z/
           options.merge!(:zip => to_zip_code(args[0]))
         when String
           placemark = Geocoder.search(args[0]).first
@@ -139,7 +139,7 @@ module Congress
     # @param number [Integer] zip code as an integer
     # @return [String]
     def to_zip_code(number)
-      format('%05d', number)
+      format('%05d', number.to_i)
     end
   end
 end
