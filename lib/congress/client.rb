@@ -27,7 +27,7 @@ module Congress
     # @return [Hashie::Rash]
     # @example
     #   Congress.key = YOUR_SUNLIGHT_API_KEY
-    #   Congress.legislators_locate(94107)
+    #   Congress.legislators_locate('94107')
     #   Congress.legislators_locate(37.775, -122.418)
     #   Congress.legislators_locate('2169 Mission Street, San Francisco, CA 94110')
     def legislators_locate(*args)
@@ -39,7 +39,7 @@ module Congress
     # @return [Hashie::Rash]
     # @example
     #   Congress.key = YOUR_SUNLIGHT_API_KEY
-    #   Congress.districts_locate(94107)
+    #   Congress.districts_locate('94107')
     #   Congress.districts_locate(37.775, -122.418)
     #   Congress.districts_locate('2169 Mission Street, San Francisco, CA 94110')
     def districts_locate(*args)
