@@ -38,6 +38,12 @@ describe Congress::Client do
           expect(a_get('/legislators/locate?zip=06511').with(:headers => {'X-APIKEY' => 'abc123'})).to have_been_made
         end
       end
+      context 'zip code as string' do
+        it 'interprets five-digit strings as zip codes' do
+          @client.legislators_locate('06511')
+          expect(a_get('/legislators/locate?zip=06511').with(:headers => {'X-APIKEY' => 'abc123'})).to have_been_made
+        end
+      end
     end
     context 'with a latitude and longitude passed' do
       before do

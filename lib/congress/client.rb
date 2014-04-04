@@ -27,7 +27,7 @@ module Congress
     # @return [Hashie::Rash]
     # @example
     #   Congress.key = YOUR_SUNLIGHT_API_KEY
-    #   Congress.legislators_locate(94107)
+    #   Congress.legislators_locate('94107')
     #   Congress.legislators_locate(37.775, -122.418)
     #   Congress.legislators_locate('2169 Mission Street, San Francisco, CA 94110')
     def legislators_locate(*args)
@@ -39,7 +39,7 @@ module Congress
     # @return [Hashie::Rash]
     # @example
     #   Congress.key = YOUR_SUNLIGHT_API_KEY
-    #   Congress.districts_locate(94107)
+    #   Congress.districts_locate('94107')
     #   Congress.districts_locate(37.775, -122.418)
     #   Congress.districts_locate('2169 Mission Street, San Francisco, CA 94110')
     def districts_locate(*args)
@@ -123,7 +123,7 @@ module Congress
       case args.size
       when 1
         case args[0]
-        when Integer
+        when Integer, /\A[\d]{5}\Z/
           options.merge!(:zip => to_zip_code(args[0]))
         when String
           placemark = Geocoder.search(args[0]).first
@@ -139,7 +139,7 @@ module Congress
     # @param number [Integer] zip code as an integer
     # @return [String]
     def to_zip_code(number)
-      format('%05d', number)
+      format('%05d', number.to_i)
     end
   end
 end

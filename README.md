@@ -45,13 +45,13 @@ Congress.legislators
 ###### Fetch representatives and senators for a latitude/longitude or zip code
 ```ruby
 Congress.legislators_locate(37.775, -122.418)
-Congress.legislators_locate(94107)
+Congress.legislators_locate('94107')
 ```
 
 ###### Fetch congressional districts for a latitude/longitude or zip code
 ```ruby
 Congress.districts_locate(37.775, -122.418)
-Congress.districts_locate(94107)
+Congress.districts_locate('94107')
 ```
 
 ###### Fetch current committees, subcommittees, and their membership
