@@ -23,7 +23,9 @@ describe Congress::Client do
   describe '#legislators_locate' do
     context 'with a zip code passed' do
       before do
-        stub_get('/legislators/locate').with(:query => hash_including('zip')).
+        stub_get('/legislators/locate').with(:query => {:zip => '06511'}).
+          to_return(:status => 200, :body => fixture('legislators_locate.json'))
+        stub_get('/legislators/locate').with(:query => {:zip => '94107'}).
           to_return(:status => 200, :body => fixture('legislators_locate.json'))
       end
       it 'fetches representatives and senators for a zip code' do
