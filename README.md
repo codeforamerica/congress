@@ -93,8 +93,6 @@ Congress.upcoming_bills
 This library aims to support and is [tested against][travis] the following Ruby
 implementations:
 
-* Ruby 1.8.7
-* Ruby 1.9.2
 * Ruby 1.9.3
 * Ruby 2.0.0
 * Ruby 2.1.0

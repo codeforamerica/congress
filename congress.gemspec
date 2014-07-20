@@ -17,6 +17,7 @@ Gem::Specification.new do |spec|
   spec.licenses      = ['MIT']
   spec.name          = 'congress'
   spec.require_paths = ['lib']
+  spec.required_ruby_version = '>= 1.9.3'
   spec.summary       = 'Ruby wrapper for the Sunlight Congress API'
   spec.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   spec.version       = Congress::VERSION
