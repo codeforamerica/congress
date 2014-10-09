@@ -12,13 +12,12 @@ Gem::Specification.new do |spec|
   spec.author        = 'Erik Michaels-Ober'
   spec.description   = 'Ruby wrapper for the Sunlight Congress API, a live JSON API for the people and work of Congress, provided by the Sunlight Foundation.'
   spec.email         = 'sferik@gmail.com'
-  spec.files         = `git ls-files`.split("\n")
+  spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.start_with?('spec/') }
   spec.homepage      = 'https://github.com/codeforamerica/congress'
   spec.licenses      = ['MIT']
   spec.name          = 'congress'
   spec.require_paths = ['lib']
   spec.required_ruby_version = '>= 1.9.3'
   spec.summary       = 'Ruby wrapper for the Sunlight Congress API'
-  spec.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   spec.version       = Congress::VERSION
 end
