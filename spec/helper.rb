@@ -18,7 +18,7 @@ RSpec.configure do |config|
   end
 end
 
-WebMock.disable_net_connect!(:allow => 'coveralls.io')
+WebMock.disable_net_connect!(allow: 'coveralls.io')
 
 def a_get(path)
   a_request(:get, Congress::Client::ENDPOINT + path)

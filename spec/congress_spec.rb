@@ -15,8 +15,8 @@ describe Congress do
 
   describe '.method_missing' do
     before do
-      stub_get('/legislators').
-        to_return(:status => 200, :body => fixture('legislators.json'))
+      stub_get('/legislators')
+        .to_return(status: 200, body: fixture('legislators.json'))
     end
     it 'delegates to an instance of Congress::Client' do
       Congress.key = 'abc123'

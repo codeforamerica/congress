@@ -118,19 +118,19 @@ module Congress
 
   private
 
-    def extract_location(args)
+    def extract_location(args) # rubocop:disable AbcSize, MethodLength
       options = args.last.is_a?(::Hash) ? args.pop : {}
       case args.size
       when 1
         case args[0]
         when Integer, /\A[\d]{5}\Z/
-          options.merge!(:zip => to_zip_code(args[0]))
+          options.merge!(zip: to_zip_code(args[0]))
         when String
           placemark = Geocoder.search(args[0]).first
-          options.merge!(:latitude => placemark.latitude, :longitude => placemark.longitude)
+          options.merge!(latitude: placemark.latitude, longitude: placemark.longitude)
         end
       when 2
-        options.merge!(:latitude => args[0], :longitude => args[1])
+        options.merge!(latitude: args[0], longitude: args[1])
       end
       options
     end

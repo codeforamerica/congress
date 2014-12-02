@@ -11,7 +11,7 @@ module Congress
     end
 
     def create_connection
-      Faraday.new(:url => ENDPOINT) do |connection|
+      Faraday.new(url: ENDPOINT) do |connection|
         middlewares.each { |middleware| connection.use(middleware) }
         connection.adapter(Faraday.default_adapter)
       end
