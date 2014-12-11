@@ -206,5 +206,4 @@ describe Congress::Client do
       expect(upcoming_bills['results'].first.bill_id).to eq('s3457-113')
     end
   end
-
 end
