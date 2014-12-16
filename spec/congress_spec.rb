@@ -11,6 +11,9 @@ describe Congress do
       end
       expect(Congress.key).to eq('abc123')
     end
+    it 'raises a warning with no api key' do
+      expect { Congress.new(nil) }.to write('Warning: Your API key may not be set').to(:stderr)
+    end
   end
 
   describe '.method_missing' do

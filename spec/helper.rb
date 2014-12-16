@@ -1,5 +1,6 @@
 require 'simplecov'
 require 'coveralls'
+require './spec/support/custom_expectations/write_expectations.rb'
 
 SimpleCov.formatters = [SimpleCov::Formatter::HTMLFormatter, Coveralls::SimpleCov::Formatter]
 
