@@ -1,16 +1,16 @@
 # Ruby wrapper for the Sunlight Congress API
 
-[![Gem Version](http://img.shields.io/gem/v/congress.svg)][gem]
-[![Build Status](http://img.shields.io/travis/codeforamerica/congress.svg)][travis]
-[![Dependency Status](http://img.shields.io/gemnasium/codeforamerica/congress.svg)][gemnasium]
-[![Code Climate](http://img.shields.io/codeclimate/github/codeforamerica/congress.svg)][codeclimate]
-[![Coverage Status](http://img.shields.io/coveralls/codeforamerica/congress.svg)][coveralls]
+[![Gem Version](https://badge.fury.io/rb/congress.svg)][gem]
+[![Build Status](https://travis-ci.org/codeforamerica/congress.svg?branch=master)][travis]
+[![Dependency Status](https://gemnasium.com/codeforamerica/congress.svg)][gemnasium]
+[![Code Climate](https://codeclimate.com/github/codeforamerica/congress/badges/gpa.svg)][codeclimate]
+[![Coverage Status](https://coveralls.io/repos/codeforamerica/congress/badge.svg?branch=master&service=github)][coveralls]
 
 [gem]: https://rubygems.org/gems/congress
-[travis]: http://travis-ci.org/codeforamerica/congress
+[travis]: https://travis-ci.org/codeforamerica/congress
 [gemnasium]: https://gemnasium.com/codeforamerica/congress
 [codeclimate]: https://codeclimate.com/github/codeforamerica/congress
-[coveralls]: https://coveralls.io/r/codeforamerica/congress
+[coveralls]: https://coveralls.io/github/codeforamerica/congress?branch=master
 
 The Sunlight Congress API is a live JSON API for the people and work of
 Congress, provided by the Sunlight Foundation.
@@ -23,14 +23,12 @@ Congress, provided by the Sunlight Foundation.
 [documentation]: http://rdoc.info/gems/congress
 
 ## Authentication
-
 All requests to the Congress API require a Sunlight API key. An API key is
 [free to register][register] and has no usage limits.
 
 [register]: http://services.sunlightlabs.com/accounts/register/
 
 ## Usage Examples
-
 ###### Setup
 ```ruby
 require 'congress'
