@@ -1,4 +1,5 @@
 bundler_args: --without development
+cache: bundler
 env:
   global:
     - JRUBY_OPTS="$JRUBY_OPTS --debug"
