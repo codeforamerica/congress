@@ -17,5 +17,5 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
   spec.required_ruby_version = '>= 1.9.3'
   spec.summary       = 'Ruby wrapper for the Sunlight Congress API'
-  spec.version       = Congress::VERSION
+  spec.version       = Congress::Version
 end
