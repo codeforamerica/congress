@@ -18,10 +18,12 @@ module Congress
     end
 
     def middlewares
-      [Faraday::Request::UrlEncoded,
-       Faraday::Response::RaiseError,
-       Faraday::Response::Mashify,
-       Faraday::Response::ParseJson]
+      [
+        Faraday::Request::UrlEncoded,
+        Faraday::Response::RaiseError,
+        Faraday::Response::Mashify,
+        Faraday::Response::ParseJson,
+      ]
     end
   end
 end

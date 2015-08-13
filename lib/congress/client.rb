@@ -16,8 +16,7 @@ module Congress
     #
     # @return [Hashie::Rash]
     # @example
-    #   Congress.key = YOUR_SUNLIGHT_API_KEY
-    #   Congress.legislators
+    #   client.legislators
     def legislators(options = {})
       get('/legislators', options)
     end
@@ -26,10 +25,9 @@ module Congress
     #
     # @return [Hashie::Rash]
     # @example
-    #   Congress.key = YOUR_SUNLIGHT_API_KEY
-    #   Congress.legislators_locate('94107')
-    #   Congress.legislators_locate(37.775, -122.418)
-    #   Congress.legislators_locate('2169 Mission Street, San Francisco, CA 94110')
+    #   client.legislators_locate('94107')
+    #   client.legislators_locate(37.775, -122.418)
+    #   client.legislators_locate('2169 Mission Street, San Francisco, CA 94110')
     def legislators_locate(*args)
       get('/legislators/locate', extract_location(args))
     end
@@ -38,10 +36,9 @@ module Congress
     #
     # @return [Hashie::Rash]
     # @example
-    #   Congress.key = YOUR_SUNLIGHT_API_KEY
-    #   Congress.districts_locate('94107')
-    #   Congress.districts_locate(37.775, -122.418)
-    #   Congress.districts_locate('2169 Mission Street, San Francisco, CA 94110')
+    #   client.districts_locate('94107')
+    #   client.districts_locate(37.775, -122.418)
+    #   client.districts_locate('2169 Mission Street, San Francisco, CA 94110')
     def districts_locate(*args)
       get('/districts/locate', extract_location(args))
     end
@@ -50,8 +47,7 @@ module Congress
     #
     # @return [Hashie::Rash]
     # @example
-    #   Congress.key = YOUR_SUNLIGHT_API_KEY
-    #   Congress.committees
+    #   client.committees
     def committees(options = {})
       get('/committees', options)
     end
@@ -60,8 +56,7 @@ module Congress
     #
     # @return [Hashie::Rash]
     # @example
-    #   Congress.key = YOUR_SUNLIGHT_API_KEY
-    #   Congress.bills
+    #   client.bills
     def bills(options = {})
       get('/bills', options)
     end
@@ -70,8 +65,7 @@ module Congress
     #
     # @return [Hashie::Rash]
     # @example
-    #   Congress.key = YOUR_SUNLIGHT_API_KEY
-    #   Congress.bills_search
+    #   client.bills_search
     def bills_search(options = {})
       get('/bills/search', options)
     end
@@ -80,8 +74,7 @@ module Congress
     #
     # @return [Hashie::Rash]
     # @example
-    #   Congress.key = YOUR_SUNLIGHT_API_KEY
-    #   Congress.votes
+    #   client.votes
     def votes(options = {})
       get('/votes', options)
     end
@@ -90,18 +83,16 @@ module Congress
     #
     # @return [Hashie::Rash]
     # @example
-    #   Congress.key = YOUR_SUNLIGHT_API_KEY
-    #   Congress.floor_updates
+    #   client.floor_updates
     def floor_updates(options = {})
       get('/floor_updates', options)
     end
 
-    # Committee hearings in Congress. Updated as hearings are announced.
+    # Committee hearings in client. Updated as hearings are announced.
     #
     # @return [Hashie::Rash]
     # @example
-    #   Congress.key = YOUR_SUNLIGHT_API_KEY
-    #   Congress.hearings
+    #   client.hearings
     def hearings(options = {})
       get('/hearings', options)
     end
@@ -110,8 +101,7 @@ module Congress
     #
     # @return [Hashie::Rash]
     # @example
-    #   Congress.key = YOUR_SUNLIGHT_API_KEY
-    #   Congress.upcoming_bills
+    #   client.upcoming_bills
     def upcoming_bills(options = {})
       get('/upcoming_bills', options)
     end

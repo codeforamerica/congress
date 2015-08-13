@@ -34,59 +34,59 @@ All requests to the Congress API require a Sunlight API key. An API key is
 ###### Setup
 ```ruby
 require 'congress'
-Congress.key = YOUR_SUNLIGHT_API_KEY
+client = Congress::Client.new(YOUR_SUNLIGHT_API_KEY)
 ```
 
 ###### Fetch current legislators' names, IDs, biography, and social media
 ```ruby
-Congress.legislators
+client.legislators
 ```
 
 ###### Fetch representatives and senators for a latitude/longitude or zip code
 ```ruby
-Congress.legislators_locate(37.775, -122.418)
-Congress.legislators_locate('94107')
+client.legislators_locate(37.775, -122.418)
+client.legislators_locate('94107')
 ```
 
 ###### Fetch congressional districts for a latitude/longitude or zip code
 ```ruby
-Congress.districts_locate(37.775, -122.418)
-Congress.districts_locate('94107')
+client.districts_locate(37.775, -122.418)
+client.districts_locate('94107')
 ```
 
 ###### Fetch current committees, subcommittees, and their membership
 ```ruby
-Congress.committees
+client.committees
 ```
 
 ###### Fetch legislation in the House and Senate
 ```ruby
-Congress.bills
+client.bills
 ```
 
 ###### Fetch legislation related to health care
 ```ruby
-Congress.bills_search(:query => "health care")
+client.bills_search(:query => "health care")
 ```
 
 ###### Fetch roll call votes in Congress
 ```ruby
-Congress.votes
+client.votes
 ```
 
 ###### Fetch to-the-minute updates from the floor of the House and Senate
 ```ruby
-Congress.floor_updates
+client.floor_updates
 ```
 
 ###### Fetch committee hearings in Congress
 ```ruby
-Congress.hearings
+client.hearings
 ```
 
 ###### Fetch bills scheduled for debate in the future, as announced by party leadership
 ```ruby
-Congress.upcoming_bills
+client.upcoming_bills
 ```
 
 ## Supported Ruby Versions
